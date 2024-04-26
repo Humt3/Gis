@@ -1,0 +1,296 @@
+PRACTICAL - 1
+ 
+AIM : - Creating and Managing Vector Data:
+A)Adding vector layer
+a) Creating Polygon vector layer ➢ Select Project→New
+b) Select Polygon option from Geometry type.
+c) File name : ▪ By default the file will be saved in bin folder. ▪ To avoid it click on following button to change the location of file
+d) a.➢ Field Panel ➢ Add the Attribute you want to show. (Column Name for Table)
+b. Specify Type (DataType:Text Data/Decimal Data/Whole Number/Date) of Attribute
+c. Specify the Length of the Attribute. Specify Precision (If Data Type is Decimal)
+e) ➢ Click on Add to Field List Button.
+➢ You can add as many fields (Column Name) as you want for the layer.
+➢ Select Geometry Type as follows • Click on the following button
+➢ The CRS dialog box will appear on screen. Click on the WGS84 option and it will be selected as follows. click on OK.
+ 
+f)Follow the steps to plot Polygon features. ➢ Select the Polygon Feature( In our case it is Matunga for background) from layer panel
+ 
+g)➢ Click Toggle Editing Button → Click on Add Polygon
+→Now place the cursor at the location where you want to place the polygon. for polygon layer minimum 3 points should be selected
+➢ Save the newly added polygon as follows.
+➢ Set style for polygon by using property window(Right click on Matunga Layer)
+➢ Following screen will appear on the screen. Select pattern as you want and click on OK.
+➢ Same way we can add one more polygon layer for Gardens.
+ 
+B) Creating Line vector layer
+➢ Repeat the same steps as we have done for polygon layer.
+➢ Select geometry type Line
+➢ Road layer : ➢ To plot road click on Add Line Feature.
+➢ Click on the map where you want to draw line.
+➢ Once you are done then right click on map (Dotted line turn into solid line)
+➢ save your data
+➢ set style for Roads in the same way as we have done for polygon
+➢ Road will look as below
+➢ To label your roads Right click on Road layer .Go to properties window then select label and set single label property
+➢ To merge roads • Go to properties of road then select symbology. Click on Advanced button select Symbol levels.
+➢ Check Enable symbol levels option.
+➢ Click ok & Road will appear as follows.
+ 
+C. Create Point vector layer
+➢ Repeat same steps to add point layers as we have done in previous layers.(For ATM, Restaurants, Banks, Bus Stops etc)
+ 
+D)Calculating line lengths and statistics
+➢ Go to Layer → Add Layer → Add Vector Layer
+➢ Add the following file to project
+"\GIS_Workshop\Practicals\Practical_01\D\DATA\IND_rrd\IND_rails.shp" Press “ADD”
+➢ Also add India Administrative Map “GIS_Workshop\Practicals\Practical_01\D\DATA\IND_adm\IND_adm0.shp” ➢ Double Click on IND_adm0
+Select Symbology → Select any outline style from below given options
+Press OK
+➢ The display window will appear like
+➢ In Layer Pane, Right click on IND_rails → Open Attribute Table
+➢ Press Open Field Calculator using button.
+➢ Set the output field as “Track_Len”, field type to “Decimal Number”.
+➢ From Function List search $length or go to Geometry → Select $length
+➢ Set expression as: $length/1000
+Press “OK” ➢ A new column is added to the attribute table with value representing the length of track in KM.
+➢ Press CTRL+S or click on Save Edits option on tool bar
+➢ Close the attribute table window.
+➢ For calculating the total length of Railway tracks in India
+➢ Select Vector→ Analysis Tools→ Basic Statics for Fields
+➢ Select IND_rails layer from input layer. And select Track_Len in “Field to Calculate statistics on”
+➢ Press RUN
+➢ The Result is
+➢ Open the “output.html” file to get the field statistics.
+➢ The above statistics show that the total length of Railway track in India is 60,479.32 KM.
+
+
+
+
+
+PRACTICAL - 2
+Exploring and Managing Raster data:
+a) Adding raster layers
+➢ From menu bar select Layer → Add Layer → Add Raster Layer
+➢ Select Gridded Population of the World (GPW) v3 dataset from Columbia University,
+Population Density Grid for the entire globe in ASCII format and for the year 1990 and 2000. “\GIS_Workshop\Practicals\Practical_02\A\Data\gl_gpwv3_pdens_90_ascii_one\glds90ag60.asc” “\GIS_Workshop\Practicals\Practical_02\A\Data\gl_gpwv3_pdens_90_ascii_one\glds00ag60.asc”
+➢ Go to Project → Properties OR Press the EPSG:4326 Set CRS option on bottom right corner. Select WGS 84 EPSG: 4326 and Press OK
+b) Raster Styling and Analysis
+➢ To start with analysis of population data, convert the pixel from grayscale to Color.
+➢ Select “glds90ag60.asc” Layer form layer Pane → select property OR double click on it.
+➢ Select Symbology
+➢ Press “APPLY”
+➢ Repeat the same for “glds00ag60.asc” Layer
+Layer output after applying style.
+➢ The objective this experiment is to analyze raster data, as an example we will find areas with largest population change between 1990 and 2000, by calculating the difference between each pixel values.
+➢ Go to Raster → Raster Calculator
+➢ Set Render Type to “Single band Pseudo color”, Interpolation as Discrete, and remove all classification and add as shown in figure above using button. After all settings press “OK”.
+➢ Layer will appear
+➢ Explore an area of your choice and check the raster band value using to verify the classification rule.
+➢ The red pixel shows negative changes and blue shows positive changes.
+c) Raster Mosaicking and Clipping
+➢ Go to Layer → Add Layer → Add Raster Layer.
+➢ Select the following “.tif” raster images for India from data folder.
+FAS_India1.2018349.terra.367.2km.tif FAS_India2.2018349.terra.367.2km.tif FAS_India3.2018349.terra.367.2km.tif FAS_India4.2018349.terra.367.2km.tif
+➢ Press open ➢ In data source manager | Raster window click Add
+➢ Go to Raster → Miscellaneous → Merge
+➢ In the Merge dialog window➢ Select all layers and Press OK.
+➢ In Merge dialog window select a file name and location to save merged images
+➢ Save the file to “GIS_Workshop/Practicals/Practical_02/C/” location with the name as Merge_Files.tif
+➢ Press Run and after completion of operation close the Merge window dialog box.
+➢ You can now deselect individual layers from layer pane and only keep the merged raster file.
+➢ Go to Layer→ Add Vector Layer → Select \GIS_Workshop\Practicals\Practical_02\C\IndiaAdminBoundry\IND_adm0.
+shp file.
+➢ From layer properties → select symbology → select any one of the following
+➢ The result will be
+➢ Go to Raster → Extraction → Clip Raster by Mask Layer
+➢ Select the merge raster image as input and Ind_adm0 as mask layer.
+➢ Select a file name and location for clipped raster as /Practical_02/C/Clipped_File.tif.
+➢ Press RUN
+
+
+
+
+PRACTICAL - 4
+A.Working with attributes
+➢ Start a new project.
+➢ Go to Layer → Add Layer → Add Vector Layer
+➢ Select
+“\GIS_Workshop\Practicals\Practical_04\A\Data\ne_10m_populated_places_simple.zip”
+➢ Right click on Layer in Layer Panel → Open Attribute Table.
+➢ Explore various attributes and their values in the Attribute table. ➢ To find the Place with maximum population click on “pop_max” file
+➢ On clicking the Select feature using expression button the following window will appear.
+➢ Enter pop_max>100 and pop_max <1000 and click (select features) button to get all the places with population between 100 and 10000.
+➢ The places matching the criteria will appear in different color.
+➢ Different queries can be performed using the dataset.
+➢ Try this:- Expression
+pop_max>100 and pop_max<10000 and “sov0name”= India
+ 
+b) Terrain Data and Hill shade analysis
+Go to Layer → Add Raster Layer → select “10n060e_20101117_gmted_mea300.tif”, from Data folder
+➢ The Lower altitude regions are shown using dark color and higher using light shade as seen on top region containing Himalaya and Mt Everest.
+➢ Mt. Everest - is located at the coordinates 27.9881°N,86.9253°E.
+➢ Enter 86.92, 27.98 in the coordinate field, Scale 900000 and Magnifier 100% at the bottom of QGIS
+➢ Press enter the view port will be centered on Himalaya Region.
+➢ Crop the raster layer only for the region under study.
+➢ Go to Raster → Extraction→ Clip Raster by Extent
+➢ Select the raster layer (if project contains multiple layers).
+➢ Select the clipping area by selecting the option Use Canvas Extends if the visible part of map is to be selected or manually select an area on canvas by using Select Extent on Canvas.
+➢ Select the location and file name for storing clipped raster layer. ➢ Press RUN. ➢ Deselect the original layer and keep the clipped one. ➢ The Clipped raster layer is representing altitude are from 103 Meters.
+➢ Counter lines are the lines on a map joining points of equal height above or below sea level. A contour interval in surveying is the vertical distance or the difference in the elevation between the two contour lines in a topographical map.
+➢ To derive counter lines from given raster.
+➢ Go to Raster → Extraction→ Contour
+➢ The Contour configuration window will appear
+➢ Select the input raster layer name. Set contour interval 100.00 meters, select the output file name & location and check the option to add output file to project after processing.
+➢ Press “RUN”.
+➢ The contour layer will appear
+➢ Label the layer using “ELEV” field and set appropriate symbols for line.
+➢ In the Layer panel right click on Contour Raster Layer and select “Open Attribute table”,
+➢ Arrange the table in descending order based on the value of “ELEV” column.
+Compare the above counter line raster layer with the previous Google map image or visit https://www.google.com/maps/@27.9857765,86.9285378,14.75z/data=!5m1!1e4?hl=en-US
+➢ To verify the above contour files using Google Map
+➢ Make a copy of Contour Layer, Go to Layer →Save As
+➢ Select file format as “Keyhole Markup Language”, set file name, location and Layer Name.
+➢ Also set CRS to WGS 84 EPSG:4326
+➢ Go to the stored location on Hard Disk and open the “Himalayan_Google_Map_File.kml” with Google Map.
+➢ For Hill Shade surface analysis
+➢ Go to Plugin → Install Georeferencer GADL.
+➢ After successful installation of plugin Go to Raster → Analysis → Hill Shade
+➢ Select the input raster layer, select file name and location for storing Hill Shade output file.
+➢ Press “RUN” and Close the Hill Shape Dialog window.
+➢ After Raster styling the Output will appear.
+
+
+
+
+
+
+PRACTICAL - 5
+Working with Projections and WMS Data
+➢ Start a new Project.
+➢ Layer → Add Layer →Vector Layer
+➢ Select “ne_10m_admin_0_countries.zip” Layer from data folder.
+➢ Go to Layer → Save As Select format as ESRI Shape File
+Select folder location and file name Set CRS North_America_Albers_Equal_Area_Conic EPSG: 102008
+➢ Press “OK”.
+➢ Deselect the original Image and keep the projected layer visible.
+➢ Select Layer → Add Layer → Add Raster Layer → Select MiniScale_(standard)_R17.tif from Location
+“GIS_Workshop\Practicals\Practical_05\DATA\minisc_gb\minisc_gb\data\RGB_TIF_compres sed\MiniScale_(standard)_R17.tif”
+➢ The Layer appears on a different location than the location where Great Britain is shown on Map.
+➢ Open Layer Properties→CRS → Search bri → select British National Grid EPSG 27700.
+➢ Processing may take some time.
+➢ Locate United Kingdom on Layer; the vector layer exactly coincides by the raster layer covering United Kingdom.
+
+
+
+
+
+Practical 6
+Georeferencing
+A. Georeferencing Topo Sheets and Scanned Maps
+➢ Start a new project
+➢ Go to Layers → Add Layer → Add vector Layer
+➢ Select GIS_Workshop\Manual\Prac06\IND_adm0.shp
+➢ Zoom in to Mumbai region in the layer.
+➢ Go to Plugins→ Manage and Install Plugins
+➢ Ensure that georefrence glad is checked, if not install Georeferencer GDAL plugin.
+➢ Go to Raster → Georefrencer
+➢ A new Georeferencer window will open
+➢ File → Open Raster
+➢ Select file “1870_southern-india_3975_3071_600.jpg” from project data folder
+➢ Go to Settings →Transformation Settings
+➢ In the Transformation Settings window
+▪ Select Transformation type → Thin Plate Spline
+▪ Re-sampling Method → Nearest Neighbour
+▪ Target TRS → Everest 1830 datum: EPSG 4044
+▪ Select Output Raster Name and Location
+▪ Check the Load in QGIS When Done Option ▪ Press “OK”.
+➢ In Georeferencer window Go to Edit → Add Points
+➢ Select the set of control points.
+➢ Go to, Setting → transformation settings.
+➢ Press “RUN”
+➢ In Georeferencing window go to → File → Start Georeferencing
+➢ The progress indicator will appear
+➢ The canvas area will now have the scanned map of Mumbai referenced with control points.
+➢ Select the newly added layer in Layer Panel Right click and go to property.
+➢ Set Transparency level of raster layer to appropriate level
+➢ The Scanned Image map coincides with the existing map.
+B. Georeferencing Aerial Imagery
+➢ Install plugin OpenStreetMap
+➢ Go to Web Menu → OpenLayerPlugin → OpenStreetMap→ OpenStreetMap
+➢ Go to Project → Properties → Set CRS to EPSG 3857
+➢ Go to View → Panels → select OSM Place search
+➢ The Gateway of India, Mumbai is located at 18.92°N 72.83°E
+➢ Search Gateway of India in OSM Search Panel
+➢ Zoom in to appropriate level.
+➢ The map will appear like this
+➢ Go to Raster → Georefrencer
+➢ A new Georeferencer window will open
+➢ File → Open Raster
+➢ Select file “Gateway_Imagery.tif” from project data folder
+➢ Go to Edit → Add Point
+➢ Select control points from map (Indicated in red color).
+➢ Go to Setting → Transformation Setting
+➢ Go to File → Start Georeferencing or Press pause the button in Georegerencing Window.
+➢ The progress indicator will appear
+➢ Observe that the aerial image of the Gateway of India is georeferenced on OSM in the map canvas
+C. Digitizing Map Data
+➢ Go to Layer ‣ Add Raster→ Select “Christchurch Topo50 map.tif” from project Folder.
+➢ QGIS offers a simple solution to make raster load much faster by using Image Pyramids.
+➢ Right-click the Christchurch Topo50 map.tif layer and select Properties.
+➢ Choose the Pyramids tab. Hold the Ctrl key and select all the resolutions offered in the Resolutions panel.
+➢ Click Build pyramids. Then click OK.
+➢ Go to Settings →Options.... Select the Digitizing tab in the Options dialog.
+➢ Set the Default snap mode to vertex and segment.
+➢ Press OK. ➢ Go to Layer → Add Layer → Add Spatialite Layer.
+➢ Select the name and location for Spatial database eg: “GIS_Workshop\Practicals\Practical_06\C\MySpatialDataBase.sqlite”. ➢ Name the Layer as “Digitized_Road
+➢ Set Geometry type as “Line”
+➢ Set CRS EPSG:4167 – NZGD2000
+➢ Add “Name” and “Class” fields using “Add to Fields List”.
+➢ Once the layer is loaded, click the Toggle Editing button to put the layer in editing mode.
+➢ Click the Add feature button. Click on the map canvas to add a new vertex. Add new vertices along the road feature. Once you have digitized a road segment, right-click to end the feature.
+➢ On Layer Panel Right Click on Digitze_Road, Select the Style tab in the Layer Properties dialog.
+➢ Select appropriate style to see the digitized road feature clearly.
+➢ After creating a new Spatialite layer
+➢ Select Digitized_Garden layer in Layer Panel and click on Toggle Editing button and then Add Polygon Feature button on Tool bar.
+➢ Add two gardens to the region by adding polygon.
+➢ The Layer will appear on map canvas
+ 
+➢ Using the above procedure a point feature can also be digitized. ➢ The digitizing task is now complete. You can play with the styling and labeling options in layer properties to create a nice looking map from the data you created.
+
+
+
+PRACTICAL - 7
+Managing Data Tables and Saptial data Sets:
+a) Table joins
+➢ Start a new project
+➢ Go to Layer → Add Layer → Add new Vector Layer “I:\GIS_Workshop\Practicals\Practical_07\A\Data\tl_2013_06_tract.zip”
+➢ We could import this csv file without any further action and it would be imported. But, the default type of each column would be a String (text). That is ok except for the D001 field which contains numbers for the population. Having those imported as text would not allow us to run any mathematical operations on this column. To tell QGIS to import the field as a number, we need to create a sidecar file with a .csvt extension.
+➢ This file will have only 1 row specifying data types for each column. Save this file as ca_tracts_pop.csvt in the same directory as the original .csv file.
+➢ Go to Layer → Add Layer → Add Delimited Text Layer And add I:\GIS_Workshop\Practicals\Practical_07\A\Data\ca_tacts_pop.csv”
+➢ In the layer panel, Right click on “tl_2013_06_tract”, layer and select Properties
+➢ Select the join option in Properties, and click on button(+) to add new table join.
+➢ In the Add Vector Join window set the following properties and click OK.
+➢ After performing join
+➢ For more clear output, select “tl_2013_06_tact” from Layer Panel, right click and select properties. Go to Symbology and set the following properties.
+➢ A detailed and accurate population map of California can be seen as the result. Same technique can be used to create maps based on variety of census data.
+b) spatial joins
+➢ Go to Layer → Add Layer → Add Vector Layer → Select “I:\GIS_Workshop\Practicals\Practical_07\B\Data\nybb_12c\nybb_13c_av\nybb.shp” and “I:\GIS_Workshop\Practicals\Practical_07\B\Data\OEM_NursingHomes_001\OEM_NursingHo mes_001.shp”, from data folder.
+➢ Go to attribute table and observe the data.
+➢ Table before performing Join
+➢ Go to Vector → Data Management Tools → Join Attributes by Location
+➢ Attribute table after join
+➢ Use the Identify Feature Button to select a region to view join data on map Layer. ➢ Output
+c) Points in polygon analysis
+➢ Go to Layer → Add Layer → Add Delimited Text Layer Select “EarthQuakeDatabase.txt”
+➢ Go to Layer → Add Layer → Add Delimited Text Layer “I:\GIS_Workshop\Practicals\Practical_07\C\Data\ne_10m_admin_0_countries.zip”
+➢ Use the select Feature button to check country wise counting of Earthquakes.
+➢ Also a new column is added to attribute table “NumPoints” indicating number of earth quake points in each country.
+d) Performing spatial queries
+➢ Go to Layer → Add Layer → Add Vector Layer and load “\GIS_Workshop\Practicals\Practical_07\D\Data\ne_10m_populated_places_simple\ne_10m_popul ated_places_simple.shp” and “I:\GIS_Workshop\Practicals\Practical_07\D\Data\ne_10m_rivers_lake_centerlines\ne_10m_rivers _lake_centerlines.shp” from project data folder.
+➢ Open project Properties → Set CRS “World_Azimuthal_Equidistant EPSG 54032” . The map will be re-projected as
+➢ Go to Vector → Geoprocessing Tool → Buffer
+➢ Repeat the step to create River Buffer
+➢ Create a buffer for River
+➢ Go to Vector → Research Tool → Select By Location
+➢ This will highlight only those rivers containing a populated place within 2 KM
+ 
