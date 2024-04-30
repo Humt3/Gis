@@ -1,0 +1,7 @@
+input.dat<-readingskills[c(1:105).)
+> png(file="abhay.png")
+output. tree<-ctree(nativeSpeaker-age+shoesize+score,data=in
+put. dat)
+› plot (output. tree)
+>
+dev.off)
